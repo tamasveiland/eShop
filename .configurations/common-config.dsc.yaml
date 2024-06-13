@@ -32,7 +32,7 @@ properties:
     ### -------------------------------------
     - resource: PSDscResources/Script
       dependsOn:
-        - git
+        - Git.Git
       directives:
         description: Configure Git to use Default WAM account
       settings:
