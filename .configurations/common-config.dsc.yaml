@@ -24,6 +24,7 @@ properties:
     ### Install Git
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: git
       directives:
         allowPrerelease: true
       settings:
@@ -32,7 +33,7 @@ properties:
     ### -------------------------------------
     - resource: PSDscResources/Script
       dependsOn:
-        - Git.Git
+        - git
       directives:
         description: Configure Git to use Default WAM account
       settings:
