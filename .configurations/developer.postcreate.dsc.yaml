@@ -15,5 +15,15 @@ properties:
       settings:
        id: Postman.Postman
 
+    ### Install Dev Home
+    ### -------------------------------------
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: devhome
+      directives:
+        description: Install Microsoft Dev Home
+        allowPrerelease: true
+      settings:
+        id: Microsoft.DevHome
+
 
        
