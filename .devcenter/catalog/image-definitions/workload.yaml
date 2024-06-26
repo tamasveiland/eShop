@@ -1,0 +1,72 @@
+$schema: "1.0"
+name: "devbox-customization"
+
+tasks:
+  ### Install Visual Studio Code
+  ### -------------------------------------
+  - name: choco
+    parameters:
+      package: vscode
+
+  ### Clone the eShop repository into the Workspaces directory
+  ### -------------------------------------
+  - name: git-clone
+    description: Clone this repository into z:\Workspaces
+    parameters:
+      repositoryUrl: https://github.com/tamasveiland/eShop.git
+      directory: c:\workspaces
+
+  ### Install winget
+  ### -------------------------------------
+  - name: choco
+    parameters:
+      package: winget.powershell
+
+  ### Update PowerShellGet
+  ### -------------------------------------
+  - name: powershell
+    description: Update PowerShellGet
+    parameters:
+      command: "Update-Module -Name PowerShellGet -Force"
+
+  ### Install winget configuration
+  ### -------------------------------------
+  - name: powershell
+    description: Install winget configuration
+    parameters:
+      command: "Install-Module -Name Microsoft.WinGet.Configuration -AllowPrerelease -Scope AllUsers"
+
+  ### Install Microsoft Dev Home
+  ### -------------------------------------
+  - name: powershell
+    description: Install Microsoft Dev Home
+    parameters:
+      command: "winget install Microsoft.DevHome -e"
+
+  # ### Install Postman
+  # ### -------------------------------------
+  # - name: winget
+  #   description: Install Postman
+  #   parameters:
+  #     package: Postman.Postman
+
+  # ### Install Notepad++
+  # ### -------------------------------------
+  # - name: winget
+  #   description: Install Notepad++
+  #   parameters:
+  #     package: Notepad++.Notepad++
+
+  # ### Install Total Commander
+  # ### -------------------------------------
+  # - name: winget
+  #   description: Install Total Commander
+  #   parameters:
+  #     package: Ghisler.TotalCommander
+
+  ### Install IIS
+  ### -------------------------------------
+  # - name: powershell
+  #   description: Install IIS
+  #   parameters:
+  #     command: "Add-WindowsFeature Web-Server"
